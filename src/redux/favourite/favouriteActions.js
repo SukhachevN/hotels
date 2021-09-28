@@ -1,13 +1,13 @@
 import { ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from './favouriteTypes';
 
-const addToFavourite = (id) => ({
+const addToFavourite = (data) => ({
   type: ADD_TO_FAVOURITE,
-  payload: id,
+  payload: data,
 });
 
-const removeFromFavourite = (id) => ({
+const removeFromFavourite = (data) => ({
   type: REMOVE_FROM_FAVOURITE,
-  payload: id,
+  payload: data,
 });
 
 export { addToFavourite, removeFromFavourite };

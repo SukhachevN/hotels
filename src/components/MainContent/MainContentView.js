@@ -3,7 +3,7 @@ import img1 from '../../img/img1.jpg';
 import img2 from '../../img/img2.jpg';
 import img3 from '../../img/img3.jpg';
 import { HotelElement } from '../HotelElement';
-import { formatHotelWord } from '../../utils/formatHotelWord';
+import { formatHotelWord } from '../../utils/formatWord';
 
 function MainContentView({
   location,
@@ -14,6 +14,7 @@ function MainContentView({
   dispatch,
 }) {
   const isReady = hotels.initialized && !hotels.loading;
+  const isReadyAndNoEmpty = isReady && hotels?.hotels;
   return (
     <>
       <div className='mainContentHeader'>
@@ -29,8 +30,8 @@ function MainContentView({
         <img src={img3} alt='img3' className='imageBlockImg' />
       </div>
       <p className='hotelsInFavourite'>
-        Добавлено в избранное : <span>{favourite.length}</span>{' '}
-        {formatHotelWord('отел', favourite.length)}
+        Добавлено в избранное : <span>{favourite.idList.length}</span>{' '}
+        {formatHotelWord('отел', favourite.idList.length)}
       </p>
       {!isReady && (
         <div className='middleSpinner'>
@@ -38,13 +39,13 @@ function MainContentView({
         </div>
       )}
       <div className='hotelElementContainer customScroll'>
-        {isReady &&
+        {isReadyAndNoEmpty &&
           hotels.hotels.map((hotel) => (
             <HotelElement
               hotel={hotel}
               key={hotel.hotelId}
               time={{ startDate: startDate, endDate: endDate }}
-              inFavourite={favourite.includes(hotel.hotelId)}
+              inFavourite={favourite.idList.includes(hotel.hotelId)}
               dispatch={dispatch}
             />
           ))}

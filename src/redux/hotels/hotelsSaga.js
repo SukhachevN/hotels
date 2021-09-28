@@ -12,7 +12,9 @@ function* fetchHotels(action) {
     yield put(fetchHotelsRequest());
     const response = yield call(
       fetch,
-      `https://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${start}&checkOut=${end}&limit=10`
+      `https://engine.hotellook.com/api/v2/cache.json?location=${encodeURI(
+        location
+      )}&currency=rub&checkIn=${start}&checkOut=${end}&limit=10`
     );
     const hotels = yield response.json();
     if (hotels?.message) {

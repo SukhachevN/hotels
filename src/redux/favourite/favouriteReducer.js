@@ -1,13 +1,26 @@
 import { ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from './favouriteTypes';
 
-const initialState = [];
+const initialState = {
+  idList: [],
+  dataList: [],
+};
 
 const favouriteReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_FAVOURITE:
-      return [...state, action.payload];
+      return {
+        idList: [...state.idList, action.payload.id],
+        dataList: [...state.dataList, action.payload.data],
+      };
     case REMOVE_FROM_FAVOURITE:
-      return [...state].filter((hotelId) => action.payload !== hotelId);
+      return {
+        idList: [...state.idList, action.payload.id].filter(
+          (hotelId) => action.payload.id !== hotelId
+        ),
+        dataList: [...state.dataList, action.payload.data].filter(
+          (hotel) => action.payload.id !== hotel.hotelId
+        ),
+      };
     default:
       return state;
   }

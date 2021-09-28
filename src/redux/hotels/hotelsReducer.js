@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   hotels: null,
   error: null,
+  initialized: false,
 };
 
 const hotelsReducer = (state = initialState, action) => {
@@ -17,11 +18,13 @@ const hotelsReducer = (state = initialState, action) => {
       return {
         ...initialState,
         hotels: action.payload,
+        initialized: true,
       };
     case HOTELS_FAIL:
       return {
         ...initialState,
         error: action.payload,
+        initialized: true,
       };
     default:
       return state;

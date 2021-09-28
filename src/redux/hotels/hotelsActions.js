@@ -5,8 +5,9 @@ import {
   HOTELS_REQUEST_FETCH,
 } from './hotelsType';
 
-const fetchHotelsRequest = () => ({
+const fetchHotelsRequest = (data) => ({
   type: HOTELS_REQUEST,
+  payload: data,
 });
 
 const fetchHotelsSuccess = (hotels) => ({
@@ -19,8 +20,9 @@ const fetchHotelsFail = (error) => ({
   payload: error,
 });
 
-const fetchHotelsRequestFetch = () => ({
+const fetchHotelsRequestFetch = (data) => ({
   type: HOTELS_REQUEST_FETCH,
+  payload: data,
 });
 
 export {

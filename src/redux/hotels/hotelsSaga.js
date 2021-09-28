@@ -1,4 +1,4 @@
-import { takeLatest, put, call, take } from 'redux-saga/effects';
+import { takeLatest, put, call } from 'redux-saga/effects';
 import {
   fetchHotelsSuccess,
   fetchHotelsFail,
@@ -6,17 +6,20 @@ import {
 } from './hotelsActions';
 import { HOTELS_REQUEST_FETCH } from './hotelsType';
 
-function* fetchHotels() {
+function* fetchHotels(action) {
   try {
-    // const { location, startData, endDate } = data;
-    // console.log(startData);
+    const { location, start, end } = action.payload;
     yield put(fetchHotelsRequest());
     const response = yield call(
       fetch,
-      'https://engine.hotellook.com/api/v2/cache.json?location=Moscow&currency=rub&checkIn=2021-12-10&checkOut=2021-12-12&limit=10'
+      `https://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${start}&checkOut=${end}&limit=10`
     );
     const hotels = yield response.json();
-    yield put(fetchHotelsSuccess(hotels));
+    if (hotels?.message) {
+      yield put(fetchHotelsFail(hotels));
+    } else {
+      yield put(fetchHotelsSuccess(hotels));
+    }
   } catch (error) {
     yield put(fetchHotelsFail(error));
   }

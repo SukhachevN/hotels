@@ -50,6 +50,29 @@ button:disabled {
   align-items: center;
 }
 
+.middleSpinner {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customScroll {
+  &::-webkit-scrollbar-track {
+    background-color: #e7e7e7;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #41522e;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -128,7 +151,7 @@ button:disabled {
   border-color: red !important;
 }
 
-/*--------------------------------------------HOTELSCREEN-----------------------------------------------------------------*/
+/*--------------------------------------------InputSection-----------------------------------------------------------------*/
 
 .header {
   display: flex;
@@ -137,6 +160,7 @@ button:disabled {
   align-self: flex-start;
   padding: 32px 31px;
   align-items: center;
+  min-width: 1200px;
 }
 
 .headerH1 {
@@ -160,7 +184,13 @@ button:disabled {
   width: 360px;
 }
 .mainContent {
-  width: 584px;
+  width: 664px;
+  height: 902px;
+  background: #ffffff;
+  box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 48px 32px 52px;
+  min-width: 664px;
 }
 
 .inputSection {
@@ -196,4 +226,106 @@ button:disabled {
 .calendarBlock {
   position: absolute;
   margin: 50px 0px 0px 300px;
+}
+
+/*--------------------------------------------------MainContent-------------------------------------------------------*/
+
+.mainContentH2 {
+  font-weight: 500;
+  font-size: 1.75rem;
+  word-spacing: 0.5rem;
+}
+
+.mainContentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.startDate {
+  color: #41522e;
+  font-size: 1.5rem;
+}
+
+.imagesBlock {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  padding: 20px 0;
+  height: 200px;
+  &:hover {
+    overflow-x: scroll;
+  }
+}
+
+.hotelsInFavourite {
+  padding: 20px 0px;
+}
+
+.imageBlockImg {
+  height: 169px;
+}
+
+.hotelElementContainer {
+  overflow-y: scroll;
+  max-height: 550px;
+  padding: 0 7px;
+}
+
+/*---------------------------------------------HOTEL_ELEMENT----------------------------------------------------*/
+
+.hotelElement {
+  border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+  padding: 16px;
+  display: flex;
+  gap: 15px;
+}
+
+.hotelImg {
+  flex-basis: 10%;
+}
+
+.textInfo1 {
+  flex-basis: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textInfo2 {
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hotelElementH3 {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.hotelElementP {
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #878787;
+  display: flex;
+  align-items: center;
+  span {
+    color: #424242;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.likeButton {
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
 }

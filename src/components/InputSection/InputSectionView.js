@@ -8,11 +8,6 @@ function InputSectionView({
   calendarValue,
   onSubmit,
 }) {
-  // console.log(calendarValue);
-  // const newDate = calendarValue;
-  // newDate.setDate(calendarValue.getDate() + 1);
-  // console.log(newDate);
-  // `${calendarValue.getFullYear()}-${calendarValue.getMonth()}-${calendarValue.getDate()}`
   return (
     <form className='inputSectionContent' onSubmit={onSubmit}>
       <div className='inputField'>

@@ -1,4 +1,5 @@
 import { InputSection } from '../../components/InputSection';
+import { MainContent } from '../../components/MainContent';
 import logout from '../../img/logout.svg';
 
 function AuthenticatedScreenView({ onClick }) {
@@ -21,7 +22,9 @@ function AuthenticatedScreenView({ onClick }) {
             </section>
             <section className='favoritesSection'>favoritesSection</section>
           </section>
-          <section className='mainContent'>mainContent</section>
+          <section className='mainContent'>
+            <MainContent />
+          </section>
         </section>
       </main>
     </>

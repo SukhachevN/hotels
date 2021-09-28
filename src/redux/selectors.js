@@ -8,4 +8,16 @@ function useGlobalState() {
   return useSelector((state) => state);
 }
 
-export { useAuth, useGlobalState };
+function useMainInfo() {
+  return useSelector((state) => state.mainInfo);
+}
+
+function useHotels() {
+  return useSelector((state) => state.hotels);
+}
+
+function useFavourite() {
+  return useSelector((state) => state.favourite);
+}
+
+export { useAuth, useGlobalState, useMainInfo, useHotels, useFavourite };

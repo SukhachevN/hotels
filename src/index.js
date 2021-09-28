@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import 'normalize.css';
 import './styles/css/style.css';
+import 'react-calendar/dist/Calendar.css';
 import { App } from './screens/App';
 import { store } from './redux';
 

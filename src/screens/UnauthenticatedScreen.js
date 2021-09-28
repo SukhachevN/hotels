@@ -2,9 +2,11 @@ import { Dialog } from '../components/Dialog';
 
 function UnauthenticatedScreen() {
   return (
-    <div className='authContainer'>
-      <Dialog />
-    </div>
+    <main>
+      <div className='authContainer'>
+        <Dialog />
+      </div>
+    </main>
   );
 }
 

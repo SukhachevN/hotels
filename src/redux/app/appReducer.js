@@ -14,7 +14,7 @@ const appReducer = (state = initialState, action) => {
     case APP_LOADED:
       return {
         initialized: true,
-        auth: action.payload.auth,
+        auth: action.payload,
       };
 
     default:

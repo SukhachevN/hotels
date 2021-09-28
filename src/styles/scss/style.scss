@@ -13,8 +13,13 @@ a {
   color: inherit;
 }
 
-.body {
+body {
   background: #e5e5e5;
+}
+
+main {
+  width: 100%;
+  height: 100%;
 }
 
 .container {
@@ -25,9 +30,9 @@ a {
   background-repeat: no-repeat;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   font-family: 'Roboto', sans-serif;
+  flex-direction: column;
 }
 
 button:disabled {
@@ -66,13 +71,12 @@ button:disabled {
 }
 .authForm {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding: 20px;
   flex-direction: column;
   background: #ffffff;
   box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
   border-radius: 16px;
-  gap: 32px;
   width: 409px;
   height: 400px;
 }
@@ -80,6 +84,7 @@ button:disabled {
 .inputField {
   display: flex;
   flex-direction: column;
+  font-weight: 500;
   input {
     border: 1px solid #c9cacc;
     height: 50px;
@@ -121,4 +126,74 @@ button:disabled {
 .isError {
   color: red !important;
   border-color: red !important;
+}
+
+/*--------------------------------------------HOTELSCREEN-----------------------------------------------------------------*/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-self: flex-start;
+  padding: 32px 31px;
+  align-items: center;
+}
+
+.headerH1 {
+  color: #424242;
+  font-size: 1.5rem;
+}
+
+.logoutButton {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #41522e;
+}
+
+.rightBar {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+.mainContent {
+  width: 584px;
+}
+
+.inputSection {
+  background: #ffffff;
+  box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  width: 360px;
+  height: 410px;
+  padding: 32px;
+}
+
+.inputSectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mainSection {
+  width: 100%;
+  padding: 0 196px;
+  display: flex;
+  gap: 24px;
+}
+
+.signInButtonInputSection {
+  margin-top: 24px;
+}
+
+#date {
+  background: url('../../img/calendarIcon.svg') no-repeat scroll 260px 16px;
+}
+
+.calendarBlock {
+  position: absolute;
+  margin: 50px 0px 0px 300px;
 }

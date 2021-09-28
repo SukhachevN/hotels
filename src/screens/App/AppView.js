@@ -7,25 +7,29 @@ import {
   useHistory,
   useLocation,
 } from 'react-router-dom';
-import { Dialog } from '../../components/Dialog';
+import { AuthPage } from '../AuthPage';
 import { UnauthenticatedScreen } from '../UnauthenticatedScreen';
 
-function AppView() {
+function AppView({ isAuthenticated, isInitialized }) {
   return (
-    <main>
-      <div className='container'>
-        <Router>
-          <Switch>
-            <Route exact path='/auth'>
-              <UnauthenticatedScreen />
-            </Route>
-            <Route path='/hotels'>
-              <div className='hotelContainer'>Hotel Screen</div>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    </main>
+    <div className='container'>
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path='/hotels'
+            render={(props) => (
+              <AuthPage
+                {...props}
+                isLoggedIn={isAuthenticated}
+                isInitialized={isInitialized}
+              />
+            )}
+          />
+          <Route exact path='/auth' component={UnauthenticatedScreen} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

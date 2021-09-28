@@ -1,10 +1,7 @@
 import { appLoaded } from './appActions';
 import { LOAD_APP } from './appTypes';
 
-const emptyState = {
-  auth: false,
-};
-
+const emptyState = false;
 const authKey = 'auth';
 
 function appMiddleware({ dispatch }) {

@@ -4,7 +4,7 @@ function DialogView({ state, handleChange, onClick }) {
   const isLoginInalid = state.initialized && !state.loginValid;
   const isPasswordInValid = state.initialized && !state.passwordValid;
   return (
-    <form className='authForm' onSubmit={(e) => e.preventDefault()}>
+    <form className='authForm' onSubmit={onClick}>
       <h1 className='authFormH1'>Simple Hotel Check</h1>
       <div
         className={classNames('inputField', {
@@ -54,7 +54,6 @@ function DialogView({ state, handleChange, onClick }) {
         type='submit'
         className='signInButton'
         disabled={!state.formValid}
-        onClick={onClick}
       >
         Войти
       </button>

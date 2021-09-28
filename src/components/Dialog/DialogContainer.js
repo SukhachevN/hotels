@@ -2,17 +2,10 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { authenticate } from '../../redux/auth';
-import { useAuth } from '../../redux/selectors';
 import { DialogView } from './DialogView';
 
 function DialogContainer() {
   const history = useHistory();
-  const { auth } = useAuth();
-  console.log(auth);
-  if (auth) {
-    history.push('/hotels');
-  }
-
   const [state, setState] = useState({
     login: '',
     password: '',

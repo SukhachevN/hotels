@@ -20,7 +20,6 @@ body {
 main {
   width: 100%;
   height: 100%;
-  padding-bottom: 50px;
 }
 
 .container {
@@ -58,6 +57,23 @@ button:disabled {
   align-items: center;
 }
 
+.BrokenRoutePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.homeLink {
+  text-decoration: underline;
+  color: blue;
+  font-size: 2rem;
+  padding-bottom: 40px;
+}
+
 .customScroll {
   &::-webkit-scrollbar-track {
     background-color: #e7e7e7;
@@ -92,6 +108,7 @@ button:disabled {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 1440px;
 }
 .authForm {
   display: flex;
@@ -145,6 +162,7 @@ button:disabled {
 .errorBlock {
   font-size: 0.75rem;
   height: 20px;
+  padding-top: 8px;
 }
 
 .isError {
@@ -161,7 +179,7 @@ button:disabled {
   align-self: flex-start;
   padding: 32px 31px;
   align-items: center;
-  min-width: 1200px;
+  min-width: 1440px;
 }
 
 .headerH1 {
@@ -212,7 +230,7 @@ button:disabled {
 
 .mainSection {
   width: 100%;
-  padding: 0 196px;
+  padding: 0 196px 50px;
   display: flex;
   gap: 24px;
 }
@@ -339,6 +357,22 @@ button:disabled {
   justify-content: flex-end;
 }
 
+.errorMsg {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  justify-content: space-between;
+  margin: auto;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.errorP {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 /*------------------------------------------FAVOURITE-------------------------------------------------------*/
 
 .favoritesSection {
@@ -361,8 +395,8 @@ button:disabled {
   gap: 5px;
 }
 
-.teztInfo2Favourite {
-  padding: 0 0 0 165px;
+.textInfo2Favourite {
+  padding: 0 0 0 155px;
   position: absolute;
   height: 60px;
   width: 269px;
@@ -388,4 +422,9 @@ button:disabled {
 .unactiveButton {
   border: 1px solid #e5e5e5;
   color: #99a0a3;
+}
+
+.favouriteContentH3 {
+  color: #424242;
+  font-size: 1.5rem;
 }

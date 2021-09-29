@@ -13,16 +13,16 @@ const defaultHotelRequest = {
   end: formatDate(dateNow),
 };
 
-console.log(defaultHotelRequest);
-
 function MainContentContainer() {
   const dispatch = useDispatch();
   const hotels = useHotels();
   const favourite = useFavourite();
   const { location, startDate, endDate } = useMainInfo();
+
   useEffect(() => {
     dispatch(fetchHotelsRequestFetch(defaultHotelRequest));
   }, []);
+
   return (
     <MainContentView
       location={location}

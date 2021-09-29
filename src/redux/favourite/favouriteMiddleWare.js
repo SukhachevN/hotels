@@ -13,11 +13,7 @@ function updateFavouriteLocalStorage({ getState }) {
     const favoutiteStringified = JSON.stringify(favourite);
     switch (action.type) {
       case INITIALIZE_FAVOURITE:
-        window.localStorage.setItem(favouriteKey, favoutiteStringified);
-        break;
       case ADD_TO_FAVOURITE:
-        window.localStorage.setItem(favouriteKey, favoutiteStringified);
-        break;
       case REMOVE_FROM_FAVOURITE:
         window.localStorage.setItem(favouriteKey, favoutiteStringified);
         break;

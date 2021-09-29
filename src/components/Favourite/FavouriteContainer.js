@@ -15,6 +15,7 @@ function FavouriteContainer() {
     ...favourite,
     dataList: favouriteDataList.sort(compareFun),
   };
+
   return (
     <FavouriteView
       dispatch={dispatch}

@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { authenticate } from '../../redux/auth';
 import { DialogView } from './DialogView';
 
+const cyrillicPattern = /[\u0400-\u04FF]/;
+const emailPatter = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
+
 function DialogContainer() {
   const history = useHistory();
   const [state, setState] = useState({
@@ -23,12 +26,12 @@ function DialogContainer() {
     let { loginValid, passwordValid } = state;
     switch (id) {
       case 'login':
-        loginValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        loginValid = value.match(emailPatter);
         login = loginValid ? '' : 'login is invalid';
         break;
       case 'password':
-        passwordValid = value.length >= 8;
-        password = passwordValid ? '' : 'password is too short';
+        passwordValid = value.length >= 8 && !value.match(cyrillicPattern);
+        password = passwordValid ? '' : 'password is invalid';
         break;
       default:
         break;

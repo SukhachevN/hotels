@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { rootReducer } from './rootReducer';
 import { updateAuthLocalStorage } from './auth';
@@ -12,7 +11,6 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   rootReducer,
   applyMiddleware(
-    logger,
     appMiddleware,
     updateAuthLocalStorage,
     updateFavouriteLocalStorage,

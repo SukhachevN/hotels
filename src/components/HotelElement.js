@@ -28,30 +28,52 @@ const HotelElement = memo(
           <div className='stars'>
             <img
               src={hotel.stars >= 1 ? activeStar : unactiveStar}
-              alt='start'
+              alt={classNames(
+                { active: hotel.stars >= 1, unactive: hotel.stars < 1 },
+                'star'
+              )}
             />
             <img
               src={hotel.stars >= 2 ? activeStar : unactiveStar}
-              alt='start'
+              alt={classNames(
+                { active: hotel.stars >= 2, unactive: hotel.stars < 2 },
+                'star'
+              )}
             />
             <img
               src={hotel.stars >= 3 ? activeStar : unactiveStar}
-              alt='start'
+              alt={classNames(
+                { active: hotel.stars >= 3, unactive: hotel.stars < 3 },
+                'star'
+              )}
             />
             <img
               src={hotel.stars >= 4 ? activeStar : unactiveStar}
-              alt='start'
+              alt={classNames(
+                { active: hotel.stars >= 4, unactive: hotel.stars < 4 },
+                'star'
+              )}
             />
             <img
               src={hotel.stars >= 5 ? activeStar : unactiveStar}
-              alt='start'
+              alt={classNames(
+                { active: hotel.stars >= 5, unactive: hotel.stars < 5 },
+                'star'
+              )}
             />
           </div>
         </a>
         <div
-          className={classNames('textInfo2', { teztInfo2Favourite: !isMain })}
+          className={classNames('textInfo2', { textInfo2Favourite: !isMain })}
         >
-          <button className='likeButton' onClick={() => dispatch(dispatchFun)}>
+          <button
+            className='likeButton'
+            onClick={() => dispatch(dispatchFun)}
+            aria-label={classNames({
+              'add to favourite': !inFavourite,
+              'remove from favourite': inFavourite,
+            })}
+          >
             <img src={inFavourite ? activeHeart : heart} alt='favourite' />
           </button>
           <p className='hotelElementP hotelElementPSmall'>

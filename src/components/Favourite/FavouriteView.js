@@ -28,7 +28,7 @@ function FavouriteView({
   const activePrice = filterType === HIGHER_PRICE || filterType === LOWER_PRICE;
   return (
     <div className='favouriteContent customScroll'>
-      <h3>Избранное</h3>
+      <h3 className='favouriteContentH3'>Избранное</h3>
       <div className='filterBlock'>
         <button
           className={classNames('filterButton', {

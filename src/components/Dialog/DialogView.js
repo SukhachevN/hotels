@@ -24,7 +24,7 @@ function DialogView({ state, handleChange, onClick }) {
           onChange={handleChange}
           className={classNames({ isError: isLoginInalid })}
         />
-        <div className='errorBlock'>
+        <div className='errorBlock' role='alert'>
           {isLoginInalid && state.formErrors.login}
         </div>
       </div>
@@ -42,11 +42,12 @@ function DialogView({ state, handleChange, onClick }) {
         </label>
         <input
           id='password'
+          type='password'
           value={state.password}
           onChange={handleChange}
           className={classNames({ isError: isPasswordInValid })}
         />
-        <div className='errorBlock'>
+        <div className='errorBlock' role='alert'>
           {isPasswordInValid && state.formErrors.password}
         </div>
       </div>

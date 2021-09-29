@@ -1,4 +1,8 @@
-import { ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from './favouriteTypes';
+import {
+  ADD_TO_FAVOURITE,
+  REMOVE_FROM_FAVOURITE,
+  INITIALIZE_FAVOURITE,
+} from './favouriteTypes';
 
 const addToFavourite = (data) => ({
   type: ADD_TO_FAVOURITE,
@@ -10,4 +14,9 @@ const removeFromFavourite = (data) => ({
   payload: data,
 });
 
-export { addToFavourite, removeFromFavourite };
+const initializeFavourite = (data) => ({
+  type: INITIALIZE_FAVOURITE,
+  payload: data,
+});
+
+export { addToFavourite, removeFromFavourite, initializeFavourite };

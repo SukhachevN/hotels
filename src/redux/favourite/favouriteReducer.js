@@ -1,4 +1,8 @@
-import { ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from './favouriteTypes';
+import {
+  ADD_TO_FAVOURITE,
+  REMOVE_FROM_FAVOURITE,
+  INITIALIZE_FAVOURITE,
+} from './favouriteTypes';
 
 const initialState = {
   idList: [],
@@ -21,6 +25,12 @@ const favouriteReducer = (state = initialState, action) => {
           (hotel) => action.payload.id !== hotel.hotelId
         ),
       };
+    case INITIALIZE_FAVOURITE:
+      return {
+        idList: action.payload.idList,
+        dataList: action.payload.dataList,
+      };
+
     default:
       return state;
   }

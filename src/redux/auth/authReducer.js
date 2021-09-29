@@ -9,7 +9,7 @@ const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case INITIALIZE_AUTH:
       return {
-        auth: action.payload.auth,
+        auth: action.payload,
         initialized: true,
       };
     case UNAUTHENTICATE:

@@ -5,12 +5,19 @@ import { rootReducer } from './rootReducer';
 import { updateAuthLocalStorage } from './auth';
 import { appMiddleware } from './app';
 import { watchHotels } from './hotels';
+import { updateFavouriteLocalStorage } from './favourite/favouriteMiddleWare';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(logger, appMiddleware, updateAuthLocalStorage, sagaMiddleware)
+  applyMiddleware(
+    logger,
+    appMiddleware,
+    updateAuthLocalStorage,
+    updateFavouriteLocalStorage,
+    sagaMiddleware
+  )
 );
 
 sagaMiddleware.run(watchHotels);

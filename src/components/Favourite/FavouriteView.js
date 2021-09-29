@@ -1,20 +1,52 @@
+import classNames from 'classnames';
 import { HotelElement } from '../HotelElement';
-import select from '../../img/select.svg';
-import selectState2 from '../../img/selectState2.svg';
-import selectUnactive from '../../img/selectUnactive.svg';
+import {
+  chooseFilterTypeForPrice,
+  chooseFilterTypeForRating,
+  chooseSelectForPrice,
+  chooseSelectForRating,
+  HIGHER_PRICE,
+  HIGHER_RATING,
+  LOWER_PRICE,
+  LOWER_RATING,
+} from './filter';
 
-function FavouriteView({ dispatch, startDate, endDate, favourite }) {
+function FavouriteView({
+  dispatch,
+  startDate,
+  endDate,
+  favourite,
+  filterType,
+  setFilterType,
+}) {
+  const selectRating = chooseSelectForRating(filterType);
+  const selectPrice = chooseSelectForPrice(filterType);
+  const ratingFilter = chooseFilterTypeForRating(filterType);
+  const priceFilter = chooseFilterTypeForPrice(filterType);
+  const activeRating =
+    filterType === HIGHER_RATING || filterType === LOWER_RATING;
+  const activePrice = filterType === HIGHER_PRICE || filterType === LOWER_PRICE;
   return (
     <div className='favouriteContent customScroll'>
       <h3>Избранное</h3>
       <div className='filterBlock'>
-        <button className='filterButton'>
+        <button
+          className={classNames('filterButton', {
+            unactiveButton: !activeRating,
+          })}
+          onClick={() => setFilterType(ratingFilter)}
+        >
           Рейтинг
-          <img src={select} alt='selector' />
+          <img src={selectRating} alt='selector' />
         </button>
-        <button className='filterButton'>
+        <button
+          className={classNames('filterButton', {
+            unactiveButton: !activePrice,
+          })}
+          onClick={() => setFilterType(priceFilter)}
+        >
           Цена
-          <img src={select} alt='selector' />
+          <img src={selectPrice} alt='selector' />
         </button>
       </div>
       <div className='favouriteHotelsBlock customScroll'>

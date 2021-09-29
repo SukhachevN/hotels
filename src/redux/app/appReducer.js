@@ -14,7 +14,8 @@ const appReducer = (state = initialState, action) => {
     case APP_LOADED:
       return {
         initialized: true,
-        auth: action.payload,
+        auth: action.payload.auth,
+        favourite: action.payload.favourite,
       };
 
     default:

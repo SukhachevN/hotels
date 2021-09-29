@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Spinner } from '../../components/Spinner';
 import { loadApp } from '../../redux/app';
 import { initializeAuth } from '../../redux/auth';
+import { initializeFavourite } from '../../redux/favourite';
 import { useAuth, useGlobalState } from '../../redux/selectors';
 import { AppView } from './AppView';
 
@@ -19,6 +20,7 @@ function AppContainer() {
   useEffect(() => {
     if (initialized) {
       dispatch(initializeAuth(data.app.auth));
+      dispatch(initializeFavourite(data.app.favourite));
     }
   }, [initialized]);
 

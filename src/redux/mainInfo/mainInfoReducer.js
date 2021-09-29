@@ -6,7 +6,7 @@ const dateNow = new Date();
 const initialState = {
   location: 'Москва',
   startDate: formatDate(dateNow),
-  endDate: formatDate(dateNow),
+  endDate: '1 день',
 };
 
 const mainInfoReducer = (state = initialState, action) => {
@@ -14,7 +14,8 @@ const mainInfoReducer = (state = initialState, action) => {
     case ADD_INFO:
       return {
         location: action.payload.location,
-        date: action.payload.date,
+        startDate: action.payload.startDate,
+        endDate: action.payload.endDate,
       };
     default:
       return state;

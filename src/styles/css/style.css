@@ -21,6 +21,7 @@ body {
 main {
   width: 100%;
   height: 100%;
+  padding-bottom: 50px;
 }
 
 .container {
@@ -80,7 +81,7 @@ button:disabled {
 }
 /*----------------------------------------------AUTH_FORM------------------------------------------------------------------------*/
 .authContainer {
-  background-image: url(../../img/AuthBack.jpg);
+  background-image: url(../../img/UnauthenticatedScreen/AuthBack.jpg);
   width: 100%;
   height: 100%;
   display: flex;
@@ -217,7 +218,7 @@ button:disabled {
 }
 
 #date {
-  background: url("../../img/calendarIcon.svg") no-repeat scroll 260px 16px;
+  background: url("../../img/icons/calendarIcon.svg") no-repeat scroll 260px 16px;
 }
 
 .calendarBlock {
@@ -374,4 +375,9 @@ button:disabled {
   padding: 4px 8px;
   cursor: pointer;
   color: #41522e;
+}
+
+.unactiveButton {
+  border: 1px solid #e5e5e5;
+  color: #99a0a3;
 }

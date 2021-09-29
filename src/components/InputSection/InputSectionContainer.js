@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchHotelsRequestFetch } from '../../redux/hotels';
 import { addInfo } from '../../redux/mainInfo';
 import { formatDate } from '../../utils/formatDate';
+import { formatDayWord } from '../../utils/formatWord';
 import { InputSectionView } from './InputSectionView';
 
 function InputSectionContainer() {
@@ -16,8 +17,20 @@ function InputSectionContainer() {
     const endDate = calendarValue;
     endDate.setDate(calendarValue.getDate() + Number(dayNum.value));
     const end = formatDate(endDate);
-    dispatch(addInfo({ location: location.value, date: start }));
-    dispatch(fetchHotelsRequestFetch({ location: location.value, start, end }));
+    dispatch(
+      addInfo({
+        location: location.value,
+        startDate: start,
+        endDate: formatDayWord(Number(dayNum.value)),
+      })
+    );
+    dispatch(
+      fetchHotelsRequestFetch({
+        location: location.value,
+        start: start,
+        end: end,
+      })
+    );
   };
 
   return (

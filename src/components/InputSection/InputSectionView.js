@@ -1,20 +1,16 @@
 /* eslint-disable react/jsx-boolean-value */
+import { memo } from 'react';
 import Calendar from 'react-calendar';
+import { comparator } from '../../utils/comparator';
 
-function InputSectionView({
-  openCalendar,
-  setOpenCalendar,
-  onChange,
-  calendarValue,
-  onSubmit,
-}) {
-  return (
+const InputSectionView = memo(
+  ({ openCalendar, setOpenCalendar, onChange, calendarValue, onSubmit }) => (
     <form className='inputSectionContent' onSubmit={onSubmit}>
       <div className='inputField'>
         <label htmlFor='location' aria-required='true'>
           Локация
         </label>
-        <input id='location' />
+        <input id='location' type='text' defaultValue='Москва' />
       </div>
       <div className='inputField'>
         <label htmlFor='date' aria-required='true'>
@@ -42,13 +38,14 @@ function InputSectionView({
         <label htmlFor='dayNum' aria-required='true'>
           Количество дней
         </label>
-        <input id='dayNum' type='number' min='1' />
+        <input id='dayNum' type='number' min='1' defaultValue='1' />
       </div>
       <button type='submit' className='signInButton signInButtonInputSection'>
         Войти
       </button>
     </form>
-  );
-}
+  ),
+  comparator
+);
 
 export { InputSectionView };

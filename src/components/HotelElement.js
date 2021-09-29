@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import classNames from 'classnames';
-import hotelImg from '../img/hotel.svg';
-import unactiveStar from '../img/unactiveStar.svg';
-import activeStar from '../img/activeStar.svg';
-import heart from '../img/heart.svg';
-import activeHeart from '../img/activeHeart.svg';
+import hotelImg from '../img/icons/hotel.svg';
+import unactiveStar from '../img/icons/unactiveStar.svg';
+import activeStar from '../img/icons/activeStar.svg';
+import heart from '../img/icons/heart.svg';
+import activeHeart from '../img/icons/activeHeart.svg';
 import { addToFavourite, removeFromFavourite } from '../redux/favourite';
 import { comparator } from '../utils/comparator';
 
@@ -27,23 +27,23 @@ const HotelElement = memo(
           <p className='hotelElementP'>{`${time.startDate} - ${time.endDate}`}</p>
           <div className='stars'>
             <img
-              src={hotel.stars > 1 ? activeStar : unactiveStar}
+              src={hotel.stars >= 1 ? activeStar : unactiveStar}
               alt='start'
             />
             <img
-              src={hotel.stars > 2 ? activeStar : unactiveStar}
+              src={hotel.stars >= 2 ? activeStar : unactiveStar}
               alt='start'
             />
             <img
-              src={hotel.stars > 3 ? activeStar : unactiveStar}
+              src={hotel.stars >= 3 ? activeStar : unactiveStar}
               alt='start'
             />
             <img
-              src={hotel.stars > 4 ? activeStar : unactiveStar}
+              src={hotel.stars >= 4 ? activeStar : unactiveStar}
               alt='start'
             />
             <img
-              src={hotel.stars > 5 ? activeStar : unactiveStar}
+              src={hotel.stars >= 5 ? activeStar : unactiveStar}
               alt='start'
             />
           </div>

@@ -10,6 +10,7 @@ function* fetchHotels(action) {
   try {
     const { location, start, end } = action.payload;
     yield put(fetchHotelsRequest());
+    console.log(start, end);
     const response = yield call(
       fetch,
       `https://engine.hotellook.com/api/v2/cache.json?location=${encodeURI(

@@ -1,19 +1,28 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useFavourite, useHotels, useMainInfo } from '../../redux/selectors';
 import { FavouriteView } from './FavouriteView';
+import { chooseCompareFun, NATURAL_ORDER } from './filter';
 
 function FavouriteContainer() {
+  const [filterType, setFilterType] = useState(NATURAL_ORDER);
   const { startDate, endDate } = useMainInfo();
   const dispatch = useDispatch();
-  const hotels = useHotels();
   const favourite = useFavourite();
+  const compareFun = chooseCompareFun(filterType);
+  const favouriteDataList = favourite.dataList;
+  const filteredHotels = {
+    ...favourite,
+    dataList: favouriteDataList.sort(compareFun),
+  };
   return (
     <FavouriteView
-      hotels={hotels}
       dispatch={dispatch}
       startDate={startDate}
       endDate={endDate}
-      favourite={favourite}
+      favourite={filteredHotels}
+      filterType={filterType}
+      setFilterType={setFilterType}
     />
   );
 }

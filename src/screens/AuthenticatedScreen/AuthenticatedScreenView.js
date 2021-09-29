@@ -1,7 +1,7 @@
 import { Favourite } from '../../components/Favourite';
 import { InputSection } from '../../components/InputSection';
 import { MainContent } from '../../components/MainContent';
-import logout from '../../img/logout.svg';
+import logout from '../../img/icons/logout.svg';
 
 function AuthenticatedScreenView({ onClick }) {
   return (

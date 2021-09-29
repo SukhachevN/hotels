@@ -1,12 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthPage } from '../AuthPage';
 import { UnauthenticatedScreen } from '../UnauthenticatedScreen';
 

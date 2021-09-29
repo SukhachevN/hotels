@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useFavourite, useHotels, useMainInfo } from '../../redux/selectors';
+import { useFavourite, useMainInfo } from '../../redux/selectors';
 import { FavouriteView } from './FavouriteView';
 import { chooseCompareFun, NATURAL_ORDER } from './filter';
 

@@ -336,6 +336,11 @@ button:disabled {
 .hotelElementPSmall {
   font-size: 0.7rem;
 }
+.hotelElementPSmall span {
+  max-width: 80px;
+  overflow-wrap: break-word;
+  text-align: center;
+}
 
 .stars {
   display: flex;
@@ -391,8 +396,9 @@ button:disabled {
 .textInfo2Favourite {
   padding: 0 0 0 155px;
   position: absolute;
-  height: 60px;
+  min-height: 60px;
   width: 269px;
+  gap: 20px;
 }
 
 .filterBlock {

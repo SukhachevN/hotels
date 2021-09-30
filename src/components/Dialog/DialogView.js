@@ -23,6 +23,7 @@ function DialogView({ state, handleChange, onClick }) {
           value={state.login}
           onChange={handleChange}
           className={classNames({ isError: isLoginInalid })}
+          placeholder='example@mail.ru'
         />
         <div className='errorBlock' role='alert'>
           {isLoginInalid && state.formErrors.login}

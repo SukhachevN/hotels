@@ -38,7 +38,7 @@ const InputSectionView = memo(
         <label htmlFor='dayNum' aria-required='true'>
           Количество дней
         </label>
-        <input id='dayNum' type='number' min='1' defaultValue='1' />
+        <input id='dayNum' type='number' min='1' max='100' defaultValue='1' />
       </div>
       <button type='submit' className='signInButton signInButtonInputSection'>
         Войти

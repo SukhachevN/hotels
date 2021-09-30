@@ -14,7 +14,7 @@ function InputSectionContainer() {
     e.preventDefault();
     const { location, dayNum } = e.target.elements;
     const start = formatDate(calendarValue);
-    const endDate = calendarValue;
+    const endDate = new Date(calendarValue);
     endDate.setDate(calendarValue.getDate() + Number(dayNum.value));
     const end = formatDate(endDate);
     dispatch(

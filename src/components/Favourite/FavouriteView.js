@@ -54,7 +54,10 @@ function FavouriteView({
           <HotelElement
             hotel={hotel}
             key={hotel.hotelId}
-            time={{ startDate: startDate, endDate: endDate }}
+            time={{
+              startDate: hotel?.time?.startDate || startDate,
+              endDate: hotel?.time?.endDate || endDate,
+            }}
             inFavourite={favourite.idList.includes(hotel.hotelId)}
             dispatch={dispatch}
             isMain={false}

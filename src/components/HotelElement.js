@@ -11,8 +11,20 @@ import { comparator } from '../utils/comparator';
 const HotelElement = memo(
   ({ hotel, isMain = 'true', time, inFavourite, dispatch }) => {
     const dispatchFun = inFavourite
-      ? removeFromFavourite({ id: hotel.hotelId, data: hotel })
-      : addToFavourite({ id: hotel.hotelId, data: hotel });
+      ? removeFromFavourite({
+          id: hotel.hotelId,
+          data: {
+            ...hotel,
+            time: { startDate: time.startDate, endDate: time.endDate },
+          },
+        })
+      : addToFavourite({
+          id: hotel.hotelId,
+          data: {
+            ...hotel,
+            time: { startDate: time.startDate, endDate: time.endDate },
+          },
+        });
     return (
       <div key={hotel.hotelId} className='hotelElement'>
         {isMain && (

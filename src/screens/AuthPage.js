@@ -6,7 +6,7 @@ function AuthPage({ isLoggedIn, isInitialized }) {
   if (!isInitialized) {
     return <Spinner />;
   }
-  if (!JSON.parse(isLoggedIn)) {
+  if (!isLoggedIn) {
     return <Redirect to='/auth' />;
   }
 

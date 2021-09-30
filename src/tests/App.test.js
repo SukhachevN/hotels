@@ -99,14 +99,6 @@ async function waitLoading() {
   }
 }
 
-const prepareHotelPage = async () => {
-  const route = 'hotels';
-  window.history.pushState({}, 'Test page', route);
-  localStorage.setItem(authKey, true);
-  render(<App />);
-  await waitLoading();
-};
-
 const authPage = () => {
   expect(
     screen.getByRole('textbox', {
@@ -209,6 +201,27 @@ const afterAddToFavourite = () => {
   expect(screen.queryAllByAltText('unactive star')).toHaveLength(
     2 * (5 - hotel.stars)
   );
+};
+
+const autentificate = () => {
+  const password = screen.getByLabelText(/пароль/i);
+  const login = screen.getByRole('textbox', {
+    name: /логин/i,
+  });
+  const logInButton = screen.getByRole('button', {
+    name: /войти/i,
+  });
+  fireEvent.change(login, { target: { value: validLogin } });
+  fireEvent.change(password, { target: { value: validPassword } });
+  fireEvent.click(logInButton);
+};
+
+const prepareHotelPage = async () => {
+  const route = 'auth';
+  window.history.pushState({}, 'Test page', route);
+  render(<App />);
+  autentificate();
+  await waitLoading();
 };
 
 test('test auth page + auth page redirect', () => {

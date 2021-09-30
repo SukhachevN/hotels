@@ -16,7 +16,7 @@ function appMiddleware({ dispatch }) {
         const authValue = window.localStorage.getItem(authKey);
         const favouriteValue = window.localStorage.getItem(favouriteKey);
         const favourite = JSON.parse(favouriteValue) || emptyFavourite;
-        const auth = authValue || emptyState;
+        const auth = JSON.parse(authValue) || emptyState;
         return dispatch(
           appLoaded({
             auth: auth,

@@ -1,5 +1,7 @@
 # Web приложение для поиска отелей
 
+https://competent-elion-2c0f15.netlify.app/
+
 - Ссылка на макет: https://www.figma.com/file/Qe8Tr0nX7HB2L4RnfGNQRv/React-Test%2FSimple-Hotel-Check?node-id=0%3A1
 
 - Стек технологий: React + Redux-saga + React Router, остальные библиотеки по желанию.
